@@ -1,0 +1,5 @@
+export { default as UsersService } from './users.service'
+export { default as ActivitiesService } from './activities.service'
+export { default as PermissionsService } from './permissions.service'
+export { default as GroupsService } from './groups.service'
+export { default as LogsService } from './logs.service'
