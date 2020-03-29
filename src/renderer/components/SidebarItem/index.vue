@@ -27,8 +27,8 @@
           v-else-if="item.children"
           :key="item.text"
           v-model="item.model"
-          :prepend-icon="item.model ? item.icon : item['icon-alt']"
-          append-icon=""
+          :prepend-icon="item.icon"
+          :append-icon="item['icon-alt']"
           >
           <template v-slot:activator>
             <v-list-item-content>
@@ -40,7 +40,7 @@
           <v-list-item
             v-for="(child, i) in item.children"
             :key="i"
-            link
+            :to="child.link"
             >
             <v-list-item-action v-if="child.icon">
               <v-icon>{{ child.icon }}</v-icon>
@@ -86,27 +86,14 @@
           { icon: 'mdi-view-dashboard', text: 'Home', link: '/' },
           { icon: 'mdi-timetable', text: 'Activities', link: 'activities' },
           { icon: 'mdi-bullhorn', text: 'Announcements', link: 'announcements' },
-          { icon: 'mdi-account-multiple', text: 'User Management', link: 'users' },
-          {
-            icon: 'mdi-chevron-up',
+          { icon: 'mdi-account',
             'icon-alt': 'mdi-chevron-down',
-            text: 'Labels',
+            text: 'User Management',
             model: false,
             children: [
-              { icon: 'mdi-plus', text: 'Create label' }
-            ]
-          },
-          {
-            icon: 'mdi-chevron-up',
-            'icon-alt': 'mdi-chevron-down',
-            text: 'More',
-            model: false,
-            children: [
-              { text: 'Import' },
-              { text: 'Export' },
-              { text: 'Print' },
-              { text: 'Undo changes' },
-              { text: 'Other contacts' }
+              { icon: 'mdi-account-multiple', text: 'Users', link: 'users' },
+              { icon: 'mdi-account-network', text: 'Groups', link: 'groups' },
+              { icon: 'mdi-account-key', text: 'Permissions', link: 'permissions' }
             ]
           },
           {
